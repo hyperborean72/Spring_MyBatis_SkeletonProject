@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+                     debug="false">
+
+    <appender name="CONSOLE_LOG" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <param name="Threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c] %m%n" />
+        </layout>
+    </appender>
+    <appender name="FILE_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="C:\Java\servers\apache-tomcat-7.0.59\logs\petshop_debug.log" />
+        <param name="Threshold" value="DEBUG" />
+        <param name="maxBackupIndex" value="5" />
+        <param name="maxFileSize" value="15MB" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} |%5p| [%c] | %m%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <appender-ref ref="CONSOLE_LOG" />
+        <appender-ref ref="FILE_LOG" />
+    </root>
+</log4j:configuration>
